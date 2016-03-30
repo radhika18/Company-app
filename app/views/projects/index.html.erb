@@ -1,0 +1,31 @@
+<div class="center jumbotron">
+<p id="notice"><%= notice %></p>
+<h1>Project Details</h1>
+<table class = "table table-bordered">
+
+<thead>
+<tr>
+	<th><center>Name</center></th>
+	
+	<th><center>Organization-Name</center></th>
+</tr>
+</thead>
+
+<tbody>
+<% @projects.each do |project|%>
+ <tr>
+	<td><%= project.project_name %></td>
+	
+	<td><%= project.get_organization_name%></td>
+	<td><%= link_to 'Show', project, class: "btn btn-info" %></td>
+	<td><%= link_to 'Edit', edit_project_path(project), class: "btn btn-info" %></td>
+    <td><%= link_to 'Destroy', project, class: "btn btn-info", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ </tr>	
+ <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New project', new_project_path , class: "btn btn-primary"%>
+</div>

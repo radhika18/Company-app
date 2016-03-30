@@ -1,0 +1,24 @@
+<div class="center jumbotron">
+<p id="notice"><%= notice %></p>
+<p>
+Name:
+<%= @organization.name %>
+</p>
+
+<p>
+Location:
+<%= @organization.location %>
+</p>
+
+<p>
+Project Names:
+<%= @organization.get_project_name %>
+</p>
+
+<%= link_to 'Edit', edit_organization_path(@organization) , class: "btn btn-primary"%> |
+<%= link_to 'Back', organizations_path , class: "btn btn-primary"%>
+
+ <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+</div>

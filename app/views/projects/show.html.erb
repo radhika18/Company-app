@@ -1,0 +1,26 @@
+<div class="center jumbotron">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.project_name %>
+</p>
+
+
+
+<p>
+  <strong>Organization Name:</strong>
+  <%= @project.get_organization_name%>
+</p>
+
+
+<p>
+  <strong>Employee Names:</strong>
+  <%= @project.get_employee_name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_project_path(@project) , class: "btn btn-primary"%> |
+<%= link_to 'Back', projects_path , class: "btn btn-primary"%>
+</div>

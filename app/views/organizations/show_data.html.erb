@@ -1,0 +1,24 @@
+	<div class="center jumbotron">
+	<center><p>Select the organizations for which you want to generate Report</p></center>
+ 
+		<%= form_tag display_path(format: :csv)  do %>
+		<table class = "table table-bordered">
+			  <thead>
+				 <tr>
+				  <th><center>Name</center></th>
+				  <th><center>Select</center></th>
+				 </tr>
+			  </thead>
+		 	  <tbody>
+		      <% @organizations.each do |org|%>
+		      <tr>
+		        <td><%=  org.name %></td>
+		        <td><%= check_box_tag 'organization_ids[]', org.id %></td>
+		      </tr> 
+	      <% end %>
+	      </tbody>
+		</table>
+	 <%= submit_tag "Submit", class: "btn btn-primary"  %>
+	 <%= link_to 'Back', organizations_path, class: "btn btn-primary" %>
+	 <% end %>
+</div>

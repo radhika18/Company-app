@@ -1,0 +1,33 @@
+<div class="center jumbotron">
+<p id="notice"><%= notice %></p>
+<h1>Organization Details</h1>
+
+<table class = "table table-bordered">
+
+<thead>
+<tr>
+	<th><center>Name</center></th>
+	<th><center>Location</center></th>
+</tr>
+</thead>
+
+<tbody>
+<% @organizations.each do |org|%>
+ <tr>
+	<td><%=  org.name %></td>
+	<td><%= org.location %></td>
+	<td><%= link_to 'Show', org , class: "btn btn-info" %></td>
+	<td><%= link_to 'Edit', edit_organization_path(org), class: "btn btn-info" %></td>
+    <td><%= link_to 'Destroy', org, class: "btn btn-info", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 
+
+ </tr>	
+ <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path , class: "btn btn-primary"%>
+<%= link_to "Generate Report", show_data_path, class: "btn btn-primary"%>
+</div>

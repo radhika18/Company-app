@@ -1,0 +1,35 @@
+<div class="center jumbotron">
+<p id="notice"><%= notice %></p>
+
+<h1>Employee Details</h1>
+
+<table class = "table table-bordered">
+  <thead>
+    <tr>
+      <th><center>Employee Name</center></th>
+      <th><center>Email</center></th>
+      <th><center>Project Name</center></th>
+      <th><center>Organization Name</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emps.each do |emp| %>
+      <tr>
+        <td><%= emp.name %></td>
+        <td><%= emp.email %></td>
+        <td><%= emp.get_project_name %></td>
+        <td><%= emp.get_organization_name %></td>
+        
+        <td><%= link_to 'Edit', edit_employee_path(emp), class: "btn btn-info" %></td>
+        <td><%= link_to 'Destroy', emp, class: "btn btn-info", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path , class: "btn btn-primary"%>
+</div>
