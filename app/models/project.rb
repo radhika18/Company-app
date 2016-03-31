@@ -8,7 +8,13 @@ def get_organization_name
 end
 
 def get_employee_name
-	Employee.all.where(project_id: id).pluck(:name) 
+	
+    if Employee.where(project_id: self.id).present?
+      Employee.all.where(project_id: id).pluck(:name).each do |name|
+      name
+	   end
+    else
+      nil
+    end
 end
-
 end

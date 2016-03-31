@@ -1,24 +1,24 @@
 <div class="center jumbotron">
-<p id="notice"><%= notice %></p>
-<p>
-Name:
-<%= @organization.name %>
-</p>
+	<p id="notice"><%= notice %></p>
+	<p> <strong>Name:</strong>
+	<%= @organization.name %>
+	 </p>
 
-<p>
-Location:
-<%= @organization.location %>
-</p>
+	<p> <strong>Location: </strong>
+	<%= @organization.location %>
+	</p>
 
-<p>
-Project Names:
-<%= @organization.get_project_name %>
-</p>
+	<p> <strong> Project Names:</strong>
+	<% if @organization.get_project_name.nil? %>
+	No projects yet. <br> <%= link_to "Add Project", new_project_path,class: "btn btn-primary"%> 
 
-<%= link_to 'Edit', edit_organization_path(@organization) , class: "btn btn-primary"%> |
-<%= link_to 'Back', organizations_path , class: "btn btn-primary"%>
+	<% else %>
+	  <%= @organization.get_project_name %>
+	<% end %>
+	</p>
 
- <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
+	<%= link_to 'Edit', edit_organization_path(@organization) , class: "btn btn-primary"%> |
+	<%= link_to 'Back', organizations_path , class: "btn btn-primary"%>
+
+
 </div>
